@@ -4,6 +4,7 @@ import LikeButton from "../LikeButton/LikeButton";
 import StarRating from "../StarRating/StarRating";
 import DisplayCounter from "../Counter/DisplayCounter";
 import Counter from "../Counter/Counter";
+import CounterContainer from "../Counter/CounterContainer";
 
 let dataList = ["Apple", "Orange", "Guava", "Banana"];
 
@@ -17,8 +18,14 @@ function App() {
       <StarRating size={5} />
       {/* property binding : passing info from parent to child */}
       <ListGroup entries={dataList} />
-      <DisplayCounter />
-      <Counter />
+      <CounterContainer loadChildren={false}>
+        <DisplayCounter />
+        <Counter />
+      </CounterContainer>
+      <CounterContainer loadChildren={true}>
+        <DisplayCounter />
+        <Counter />
+      </CounterContainer>
     </div>
   );
 }
